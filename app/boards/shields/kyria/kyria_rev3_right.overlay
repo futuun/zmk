@@ -31,3 +31,15 @@
 &right_encoder {
     status = "okay";
 };
+
+&gpio_ps2 {
+    status = "okay";
+};
+
+&mouse_ps2 {
+    status = "okay";
+};
+
+&gpiote {
+    interrupts = < 0x6 0 >;
+};

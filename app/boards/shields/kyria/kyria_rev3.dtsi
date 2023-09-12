@@ -39,3 +39,22 @@
     a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 };
+
+// The PS/2 GPIO and mouse drivers.
+/ {
+    gpio_ps2: gpio_ps2 {
+        status = "disabled";
+        compatible = "gpio-ps2";
+        scl-gpios = <&gpio0 20 0>;
+        sda-gpios = <&gpio0 17 0>;
+    };
+};
+
+/ {
+    mouse_ps2: mouse_ps2 {
+        status = "disabled";
+        compatible = "zmk,mouse-ps2";
+        ps2-device = <&gpio_ps2>;
+        rst-gpios = <&gpio1 7 0>;
+    };
+};
